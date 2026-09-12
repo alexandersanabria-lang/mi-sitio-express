@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="container">
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Mi Sitio</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/about">Acerca de</a></li>
+        <li><a href="/contact">Contacto</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/pokedex">Pokédex</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="card-panel">
+    <h3 class="center-align">Mensajes recibidos</h3>
+
+    <% if (messages.length === 0) { %>
+      <p class="center-align">No hay mensajes aún.</p>
+    <% } else { %>
+      <ul class="collection">
+        <% messages.forEach(m => { %>
+          <li class="collection-item" style="background-color: transparent; color: var(--text-light); border-color: #333;">
+            <strong style="color: var(--accent);"><%= m.nombre %></strong> (<%= m.email %>)<br>
+            <em><%= m.mensaje %></em>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
